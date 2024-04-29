@@ -27,22 +27,22 @@ export default function Update() {
       userName: event.target.userName.value,
     };
 
-    // fetch("http://localhost:3000/touristspot",{
-    //   method: "POST",
-    //   headers:{
-    //     "content-type": "application/json"
-    //   },
-    //   body: JSON.stringify(spot)
+    fetch(`http://localhost:3000/alltouristspot/${spotData._id}`,{
+      method: "PUT",
+      headers:{
+        "content-type": "application/json"
+      },
+      body: JSON.stringify(spot)
 
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     alert('Success')
-    //   })
-    //   .catch(err =>{
-    //     alert(err.message)
-    //     console.log(err)
-    //   })
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        alert('Success')
+      })
+      .catch(err =>{
+        alert(err.message)
+        console.log(err)
+      })
   };
 
   return (
