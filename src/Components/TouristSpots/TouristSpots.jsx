@@ -13,7 +13,7 @@ const TouriestSpots = () => {
   return (
     <div className="container mx-auto px-1 py-8">
       <h1 className="text-3xl font-bold my-10 text-center">
-        Explore Beautiful Destinations
+        Tourist Spots
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {spots.map((spot) => (

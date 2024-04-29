@@ -20,6 +20,7 @@ function AppAppBar({ mode }) {
     const toggleDrawer = (newOpen) => () => {
         setOpen(newOpen);
     };
+    const { user, signOutUser } = useContext(AuthContext);
 
     const mobileMenu = (
         <div>
@@ -33,7 +34,7 @@ function AppAppBar({ mode }) {
                 <NavLink to="/addtouriestspots">Add tourist spot</NavLink>
             </MenuItem>
             <MenuItem>
-                <NavLink to="/mylist">My list</NavLink>
+                <NavLink to={`/mylist/${user.email}`}>My list</NavLink>
             </MenuItem>
         </div>
     );
@@ -62,7 +63,7 @@ function AppAppBar({ mode }) {
                 </NavLink>
             </MenuItem>
             <MenuItem>
-                <NavLink to="/mylist">
+                <NavLink to={`/alltouristspot/mylist/${user.email}`}>
                     <Typography variant="body2" color="text.primary">
                         My list
                     </Typography>
@@ -71,7 +72,6 @@ function AppAppBar({ mode }) {
         </div>
     );
 
-    const { user, signOutUser } = useContext(AuthContext);
 
     return (
         <div>
