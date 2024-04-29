@@ -83,6 +83,7 @@ function AppAppBar({ mode }) {
                     backgroundImage: 'none',
                     mt: 0,
                 }}
+                className="py-3"
             >
                 <Toolbar
                     variant="regular"

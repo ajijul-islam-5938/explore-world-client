@@ -7,7 +7,7 @@ const Layout = () => {
     return (
         <div>
             <Header />
-            <div className="">
+            <div className="w-[95%] mx-auto my-20">
                 <Outlet />
             </div>
             <Footer />
