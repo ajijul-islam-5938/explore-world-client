@@ -6,6 +6,7 @@ import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
+import swal from "sweetalert";
 
 export default function AddTouriestSpots() {
   const handleSubmit = (event) => {
@@ -34,11 +35,10 @@ export default function AddTouriestSpots() {
     })
       .then((res) => res.json())
       .then((data) => {
-        alert('Success')
+        swal("Added", "Added Successfully", "success");
       })
       .catch(err =>{
-        alert(err.message)
-        console.log(err)
+        swal("Error", `${err.message}`, "error");
       })
   };
 
