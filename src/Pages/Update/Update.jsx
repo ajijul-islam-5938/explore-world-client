@@ -7,6 +7,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { useLoaderData } from "react-router-dom";
+import swal from "sweetalert";
 
 export default function Update() {
     const spotData = useLoaderData();
@@ -37,11 +38,10 @@ export default function Update() {
     })
       .then((res) => res.json())
       .then((data) => {
-        alert('Success')
+        swal("Updated", "Updated Successfully", "success");
       })
       .catch(err =>{
-        alert(err.message)
-        console.log(err)
+        swal("Error", `${err.message}`, "error");
       })
   };
 
