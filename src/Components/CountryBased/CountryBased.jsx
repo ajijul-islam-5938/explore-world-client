@@ -8,6 +8,7 @@ const CountryBased = () => {
     return (
         <div>
             <h1 className="text-3xl text-center font-bold my-32"> Country Based Tourist Spot</h1>
+            {countries.length <1 && <div className='text-center'><h2 className="text-2xl mx-auto bg-error text-white p-4 rounded-full inline-block">Spot Not Found for This Country</h2></div>}
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
                 {
                     countries.map(country =>

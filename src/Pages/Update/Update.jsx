@@ -11,7 +11,6 @@ import swal from "sweetalert";
 
 export default function Update() {
     const spotData = useLoaderData();
-    alert(JSON.stringify(spotData))
   const handleSubmit = (event) => {
     event.preventDefault();
     const spot = {
