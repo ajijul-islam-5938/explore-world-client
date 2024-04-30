@@ -8,3 +8,7 @@ a{
 a.active *{
   color: rgb(64, 0, 255);
 }
+.leaflet-container {
+  width: 100%;
+  height: 50vh;
+}

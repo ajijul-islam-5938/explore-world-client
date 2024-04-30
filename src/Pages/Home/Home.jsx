@@ -2,6 +2,7 @@ import React from 'react';
 import Banner from '../../Components/Banner/Banner';
 import TouriestSpots from '../../Components/TouristSpots/TouristSpots';
 import Country from '../../Components/Contries/Country';
+import Zone from '../../Components/Zone/Zone';
 
 const Home = () => {
     return (
@@ -9,6 +10,7 @@ const Home = () => {
             <Banner/>
             <TouriestSpots/>
             <Country/>
+            <Zone/>
         </div>
     );
 };
