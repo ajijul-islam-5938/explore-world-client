@@ -34,7 +34,7 @@ function AppAppBar({ mode }) {
                 <NavLink to="/addtouriestspots">Add tourist spot</NavLink>
             </MenuItem>
             <MenuItem>
-                <NavLink to={`/mylist/${user.email}`}>My list</NavLink>
+                <NavLink to={`/mylist/${user?.email || ""}`}>My list</NavLink>
             </MenuItem>
         </div>
     );
@@ -63,7 +63,7 @@ function AppAppBar({ mode }) {
                 </NavLink>
             </MenuItem>
             <MenuItem>
-                <NavLink to={`/alltouristspot/mylist/${user.email}`}>
+                <NavLink to={`/alltouristspot/mylist/${user?.email||""}`}>
                     <Typography variant="body2" color="text.primary">
                         My list
                     </Typography>
@@ -77,11 +77,11 @@ function AppAppBar({ mode }) {
         <div>
             <AppBar
                 position="fixed"
+                top='0px'
                 sx={{
                     boxShadow: 0,
                     bgcolor: 'transparent',
                     backgroundImage: 'none',
-                    mt: 0,
                 }}
                 className="py-3"
             >

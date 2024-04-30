@@ -12,8 +12,8 @@ const AllTouriestSpots = () => {
 
   return (
     <div className="container mx-auto px-1 py-8">
-      <h1 className="text-3xl font-bold my-10 text-center">
-        Explore Beautiful Destinations
+      <h1 className="text-3xl font-bold my-20 text-center">
+        All Tourist Spots
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {spots.map((spot) => (
@@ -26,7 +26,7 @@ const AllTouriestSpots = () => {
               alt="Tourist Spot Image"
               className="w-full h-40 object-cover object-center rounded-t-lg"
             />
-            <div className="p-6">
+            <div className="p-3">
               <h2 className="text-xl font-semibold text-zinc-800 dark:text-white mb-4">
                 {spot.spotName}
               </h2>

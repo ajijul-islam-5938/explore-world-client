@@ -2,12 +2,14 @@ import { GithubAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged,
 import { GoogleAuthProvider } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../../firebase/firebase.config";
+import swal from 'sweetalert';
 
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
+    const [loading,setLoading] = useState(true)
 
     const [user, setUser] = useState({});
 
@@ -15,7 +17,7 @@ const AuthProvider = ({ children }) => {
     const signInGoogle = () => {
         signInWithPopup(auth, googleProvider)
             .then(result => {
-                alert('Success')
+                swal("Logged In", "Successfully Logged In", "success");
             })
             .catch(err => {
                 alert(err.message)
@@ -25,7 +27,7 @@ const AuthProvider = ({ children }) => {
     const signInGithub = () => {
         signInWithPopup(auth, githubProvider)
             .then(res => {
-                alert("Success");
+                swal("Logged In", "Successfully Logged In", "success");
             })
             .catch(err => {
                 alert(err.message)
@@ -35,7 +37,7 @@ const AuthProvider = ({ children }) => {
     const signInWithEmailPassword = (email, password) => {
         signInWithEmailAndPassword(auth, email, password)
             .then(res => {
-                alert("loggedIn")
+                swal("Logged In", "Successfully Logged In", "success");
             })
             .catch(err => {
                 alert(err.message);
@@ -50,7 +52,7 @@ const AuthProvider = ({ children }) => {
                     displayName: name, photoURL: photoURL
                 })
                 .then(res=>{
-                    alert("Success")
+                    swal("Created Account", "Successfully Created", "success");
                 })
                 .catch(err=>{
                     alert(err.message)
@@ -66,7 +68,7 @@ const AuthProvider = ({ children }) => {
     const signOutUser = () => {
         signOut(auth)
             .then(result => {
-                alert("LoggedOut")
+                swal("Logged Out", "Successfully Logged Out", "success");
             })
             .catch(err => {
                 console.log(err.message);
@@ -78,6 +80,8 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
+        setLoading(true);
+
         })
         return unsubscribe;
     }, [])

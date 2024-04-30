@@ -4,7 +4,27 @@ import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 
 const MyList = () => {
   const myList = useLoaderData();
-  const {user} = useContext(AuthContext)
+  const {user} = useContext(AuthContext);
+
+  const handleDelete = (id) => {
+    fetch(`/alltouristspot/${user?.email}/${id}`, {
+      method: "DELETE"
+    })
+    .then(res => {
+      if (res.ok) {
+        // Successful deletion
+        console.log("Spot deleted successfully");
+      } else {
+        // Failed deletion
+        throw new Error("Failed to delete spot");
+      }
+    })
+    .catch(err => {
+      alert(err.message);
+      console.error(err);
+    });
+  };
+  
   return (
     <div className="overflow-x-auto">
       <table className="table table-zebra">
@@ -29,7 +49,7 @@ const MyList = () => {
                   <Link to={`/alltouristspot/mylist/${user.email}/${list._id}`}>
                     <button className="btn btn-xs btn-info">Update</button>
                   </Link>
-                  <button className="btn btn-xs btn-error">Delete</button>
+                  <button onClick={() => handleDelete(list._id)} className="btn btn-xs btn-error">Delete</button>
                 </div>
               </td>
             </tr>

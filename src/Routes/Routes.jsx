@@ -9,6 +9,7 @@ import MyList from "../Pages/MyList/MyList";
 import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 import AllTouriestSpots from "../Pages/AllTouriestSpots/AllTouriestSpots";
 import Update from "../Pages/Update/Update";
+import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
         },
         {
             path: "/addtouriestspots",
-            element : <AddTouriestSpots/>
+            element : <PrivateRoute><AddTouriestSpots/></PrivateRoute>
         },
         {
             path : "/touriestspots",
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
         },
         {
             path : "/alltouristspot/mylist/:email",
-            element: <MyList/>,
+            element: <PrivateRoute><MyList/></PrivateRoute>,
             loader : ({params})=> fetch(`http://localhost:3000/alltouristspot/mylist/${params.email}`)
         },
         {
@@ -47,7 +48,7 @@ const router = createBrowserRouter([
         },
         {
             path: "/alltouristspot/mylist/:email/:id",
-            element: <Update/>,
+            element: <PrivateRoute><Update/></PrivateRoute>,
             loader : ({params})=> fetch(`http://localhost:3000/alltouristspot/mylist/${params.email}/${params.id}`)
         }
       ]
