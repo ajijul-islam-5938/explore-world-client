@@ -25,7 +25,7 @@ export default function AddTouriestSpots() {
       userName: event.target.userName.value,
     };
 
-    fetch("http://localhost:3000/touristspot",{
+    fetch("https://southeast-tourist-server.vercel.app/touristspot",{
       method: "POST",
       headers:{
         "content-type": "application/json"

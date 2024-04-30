@@ -31,40 +31,40 @@ const router = createBrowserRouter([
       },
       {
         path: "/addtouriestspots",
-        element: <AddTouriestSpots />,
+        element: <PrivateRoute><AddTouriestSpots /></PrivateRoute>,
       },
       {
         path: "/touriestspots",
         element: <AllTouriestSpots />,
       },
       {
-        path: "/alltouristspot/mylist/:email",
+        path: "/alltouristspot/mylist",
         element: (
           <PrivateRoute>
             <MyList />
           </PrivateRoute>
         ),
-        loader: ({ params }) =>
-          fetch(`http://localhost:3000/alltouristspot/mylist/${params.email}`),
+        // loader: ({ params }) =>
+        //   fetch(`https://southeast-tourist-server.vercel.app/alltouristspot/mylist/${params.email}`),
       },
       {
         path: "/touriestspots/viewdetails/:id",
-        element: <ViewDetails />,
+        element: <PrivateRoute><ViewDetails /></PrivateRoute>,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/alltouristspot/${params.id}`),
+          fetch(`https://southeast-tourist-server.vercel.app/alltouristspot/${params.id}`),
       },
       {
         path: "/alltouristspot/mylist/:email/:id",
-        element: <Update />,
+        element: <PrivateRoute><Update /></PrivateRoute>,
         loader: ({ params }) =>
           fetch(
-            `http://localhost:3000/alltouristspot/mylist/${params.email}/${params.id}`
+            `https://southeast-tourist-server.vercel.app/alltouristspot/mylist/${params.email}/${params.id}`
           ),
       },
       {
         path: "/countries/:name",
         element: <CountryBased />,
-        loader: ({ params }) => fetch(`http://localhost:3000/countries/${params.name}`),
+        loader: ({ params }) => fetch(`https://southeast-tourist-server.vercel.app/countries/${params.name}`),
       },
     ],
   },

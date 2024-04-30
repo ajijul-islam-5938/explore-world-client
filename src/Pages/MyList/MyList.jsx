@@ -1,27 +1,31 @@
-import { useContext } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link} from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
+import swal from "sweetalert";
 
 const MyList = () => {
-  const myList = useLoaderData();
+  const [myList,setMyList] = useState([]);
   const {user} = useContext(AuthContext);
-
+  useEffect(()=>{
+    fetch(`https://southeast-tourist-server.vercel.app/alltouristspot/mylist/${user.email}`)
+    .then(res => res.json())
+    .then(data => setMyList(data))
+  },[])
   const handleDelete = (id) => {
-    fetch(`/alltouristspot/${user?.email}/${id}`, {
+    fetch(`https://southeast-tourist-server.vercel.app/alltouristspot/${id}`, {
       method: "DELETE"
     })
     .then(res => {
       if (res.ok) {
         // Successful deletion
-        console.log("Spot deleted successfully");
+        swal("Logged Out", "Successfully Logged Out", "success");
       } else {
         // Failed deletion
-        throw new Error("Failed to delete spot");
+        throw new Error("Failed to delete");
       }
     })
     .catch(err => {
-      alert(err.message);
-      console.error(err);
+      swal("Failed", `${err.message}`, "error");
     });
   };
   
@@ -39,7 +43,7 @@ const MyList = () => {
         </thead>
         <tbody>
           {/* row 1 */}
-          {myList.map((list) => (
+          {myList?.map((list) => (
             <tr key={list._id}>
               <th>{list.spotName}</th>
               <td>{list.location}</td>

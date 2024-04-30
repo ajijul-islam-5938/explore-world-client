@@ -74,7 +74,7 @@ export default function SignIn() {
             </Button>
             <Grid container className='text-xS flex justify-between items-center gap-5'>
               <Grid item>
-                <p>Don't have account? <Link to="/register">sign up</Link></p>
+                <p>Don't have account? <Link className="text-blue-500 underline" to="/register">sign up</Link></p>
               </Grid>
             </Grid>
             <Divider className='my-2'>or</Divider>

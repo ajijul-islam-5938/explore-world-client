@@ -1,6 +1,7 @@
 
 # Site Details
 
+* #####  Site Category : Southeast Asia
 * #####  Name : Explore World
 * ##### [Live Site Link Click here to visit](https://assignment-10-9a5c8.web.app)
 

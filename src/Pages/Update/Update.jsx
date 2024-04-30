@@ -27,7 +27,7 @@ export default function Update() {
       userName: event.target.userName.value,
     };
 
-    fetch(`http://localhost:3000/alltouristspot/${spotData._id}`,{
+    fetch(`https://southeast-tourist-server.vercel.app/alltouristspot/${spotData._id}`,{
       method: "PUT",
       headers:{
         "content-type": "application/json"
