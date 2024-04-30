@@ -34,7 +34,7 @@ function AppAppBar({ mode }) {
                 <NavLink to="/addtouriestspots">Add tourist spot</NavLink>
             </MenuItem>
             <MenuItem>
-                <NavLink to={`alltouristspot/mylist}`}>My list</NavLink>
+                <NavLink to={`alltouristspot/mylist`}>My list</NavLink>
             </MenuItem>
         </div>
     );
