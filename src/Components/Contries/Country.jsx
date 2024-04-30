@@ -10,14 +10,14 @@ const Country = () => {
   }, []);
   return (
     <div>
-      <h1 className="text-3xl text-center my-20">Country</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+      <h1 className="text-3xl text-center my-20 font-bold">Country</h1>
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-3 lg:grid-cols-4">
         {countries.map((country) => (
           <Link key={country._id} to={`/countries/${country.name}`}>
             <div className="p-4">
               <div className="bg-white dark:bg-zinc-800 rounded-lg shadow-md">
                 <img
-                  src="https://placehold.co/300x200"
+                  src={country.image_url}
                   alt="Country Image"
                   className="w-full h-48 object-cover rounded-t-lg"
                 />

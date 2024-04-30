@@ -16,7 +16,7 @@ import { Typewriter } from 'react-simple-typewriter'
 const Banner = () => {
 
     return (
-        <div className=" relative w-full h-full grid grid-cols-1 md:grid-cols-2 gap-5 items-center p-4 rounded-lg bg-[url(https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Vashu_bihar1.jpg/1024px-Vashu_bihar1.jpg)] bg-cover bg-center overflow-hidden">
+        <div className=" relative w-full py-10 h-full grid grid-cols-1 md:grid-cols-2 gap-5 items-center p-4 rounded-lg bg-[url(https://www.thrillophilia.com/blog/wp-content/uploads/2021/05/shutterstock_1801476289-1536x1152.jpg)] bg-cover bg-center overflow-hidden">
             <div className="absolute inset-0 bg-black opacity-40"></div>
             <div className=" relative z-10 text-left md:flex-1 md:p-4 order-last md:order-first space-y-5">
                 <h1 className="text-xl md:text-3xl font-bold text-white">Welcome to Our Adventure Website</h1>
@@ -51,9 +51,9 @@ const Banner = () => {
                                     modules={[EffectCards]}
                                     className="mySwiper w-full md:w-[70%] mx-auto"
                                 >
-                                    <SwiperSlide className='rounded-lg'><img className='w-full' src="https://img.freepik.com/premium-photo/touriest-close-up-hand-feeding-kangaroo-national-park-australia-summer_866797-3574.jpg" alt="" /></SwiperSlide>
-                                    <SwiperSlide className='rounded-lg'><img className='w-full' src="https://img.freepik.com/premium-photo/touriest-close-up-hand-feeding-kangaroo-national-park-australia-summer_866797-3574.jpg" alt="" /></SwiperSlide>
-                                    <SwiperSlide className='rounded-lg'><img className='w-full' src="https://img.freepik.com/premium-photo/touriest-close-up-hand-feeding-kangaroo-national-park-australia-summer_866797-3574.jpg" alt="" /></SwiperSlide>
+                                    <SwiperSlide className='rounded-lg'><img className='w-full' src="https://nomadparadise.com/wp-content/uploads/2021/04/bangladesh-places-09b.jpg" alt="" /></SwiperSlide>
+                                    <SwiperSlide className='rounded-lg'><img className='w-full' src="https://static2.tripoto.com/media/transfer/img/OgData/1562668040_1507632249_chiang_mai_sun_surfer_com_fotor.jpg" alt="" /></SwiperSlide>
+                                    <SwiperSlide className='rounded-lg'><img className='w-full' src="https://i2.wp.com/www.99inspiration.com/wp-content/uploads/2015/11/Ora-Beach-Maluku.jpg" alt="" /></SwiperSlide>
 
                                 </Swiper>
                             </div>

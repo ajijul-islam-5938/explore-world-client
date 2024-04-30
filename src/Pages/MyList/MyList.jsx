@@ -1,31 +1,42 @@
 import { useContext, useEffect, useState } from "react";
-import { Link} from "react-router-dom";
+import { Link, Navigate} from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 import swal from "sweetalert";
+import Swal from 'sweetalert2'
+
 
 const MyList = () => {
   const [myList,setMyList] = useState([]);
   const {user} = useContext(AuthContext);
+
   useEffect(()=>{
     fetch(`https://southeast-tourist-server.vercel.app/alltouristspot/mylist/${user.email}`)
     .then(res => res.json())
     .then(data => setMyList(data))
   },[])
   const handleDelete = (id) => {
-    fetch(`https://southeast-tourist-server.vercel.app/alltouristspot/${id}`, {
-      method: "DELETE"
-    })
-    .then(res => {
-      if (res.ok) {
-        // Successful deletion
-        swal("Logged Out", "Successfully Logged Out", "success");
-      } else {
-        // Failed deletion
-        throw new Error("Failed to delete");
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://southeast-tourist-server.vercel.app/alltouristspot/${id}`, {
+          method: "DELETE"
+        })
+        .then(res => {
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success"
+          });
+          <Navigate to="/"/>
+        })
       }
-    })
-    .catch(err => {
-      swal("Failed", `${err.message}`, "error");
     });
   };
   

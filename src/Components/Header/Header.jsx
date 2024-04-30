@@ -24,20 +24,21 @@ function AppAppBar({ mode }) {
 
     const mobileMenu = (
         <div>
-            <MenuItem>
-                <NavLink to="/">Home</NavLink>
-            </MenuItem>
-            <MenuItem>
-                <NavLink to="/touriestspots">All tourist spot</NavLink>
-            </MenuItem>
-            <MenuItem>
-                <NavLink to="/addtouriestspots">Add tourist spot</NavLink>
-            </MenuItem>
-            <MenuItem>
-                <NavLink to={`alltouristspot/mylist`}>My list</NavLink>
-            </MenuItem>
+            <NavLink to="/">
+                <MenuItem>Home</MenuItem>
+            </NavLink>
+            <NavLink to="/touriestspots">
+                <MenuItem>All tourist spot</MenuItem>
+            </NavLink>
+            <NavLink to="/addtouriestspots">
+                <MenuItem>Add tourist spot</MenuItem>
+            </NavLink>
+            <NavLink to={`alltouristspot/mylist`}>
+                <MenuItem>My list</MenuItem>
+            </NavLink>
         </div>
     );
+    
 
     const tabMenu = (
         <div className="flex items-center ml-2">
