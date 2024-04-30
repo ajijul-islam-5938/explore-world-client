@@ -20,7 +20,7 @@ const AuthProvider = ({ children }) => {
                 swal("Logged In", "Successfully Logged In", "success");
             })
             .catch(err => {
-                alert(err.message)
+                swal("Error", `${err.message}`, "error");
             })
     }
     // sign in with gitHub
@@ -30,7 +30,7 @@ const AuthProvider = ({ children }) => {
                 swal("Logged In", "Successfully Logged In", "success");
             })
             .catch(err => {
-                alert(err.message)
+                swal("Error", `${err.message}`, "error");
             })
     }
     // sign in with email password
@@ -40,7 +40,7 @@ const AuthProvider = ({ children }) => {
                 swal("Logged In", "Successfully Logged In", "success");
             })
             .catch(err => {
-                alert(err.message);
+                swal("Error", `${err.message}`, "error");
             })
     }
 
@@ -55,11 +55,11 @@ const AuthProvider = ({ children }) => {
                     swal("Created Account", "Successfully Created", "success");
                 })
                 .catch(err=>{
-                    alert(err.message)
+                    swal("Error", `${err.message}`, "error");
                 })
             })
             .catch(err => {
-                alert(err.message)
+                swal("Error", `${err.message}`, "error");
             })
     }
 
@@ -71,7 +71,7 @@ const AuthProvider = ({ children }) => {
                 swal("Logged Out", "Successfully Logged Out", "success");
             })
             .catch(err => {
-                console.log(err.message);
+                swal("Error", `${err.message}`, "error");
             })
 
     }
