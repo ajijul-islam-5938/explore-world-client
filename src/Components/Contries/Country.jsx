@@ -13,7 +13,7 @@ const Country = () => {
       <h1 className="text-3xl text-center my-20">Country</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
         {countries.map((country) => (
-          <Link key={country._id}>
+          <Link key={country._id} to={`/countries/${country.name}`}>
             <div className="p-4">
               <div className="bg-white dark:bg-zinc-800 rounded-lg shadow-md">
                 <img

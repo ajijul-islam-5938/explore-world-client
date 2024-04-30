@@ -10,53 +10,68 @@ import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 import AllTouriestSpots from "../Pages/AllTouriestSpots/AllTouriestSpots";
 import Update from "../Pages/Update/Update";
 import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
+import CountryBased from "../Components/CountryBased/CountryBased";
 
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element:<Layout/>,
-      children: [
-        {
-            path: "/",
-            element : <Home/>
-        },
-        {
-            path: "/login",
-            element : <Login/>
-        },
-        {
-            path: "/register",
-            element : <Register/>
-        },
-        {
-            path: "/addtouriestspots",
-            element : <AddTouriestSpots/>
-        },
-        {
-            path : "/touriestspots",
-            element : <AllTouriestSpots/>
-        },
-        {
-            path : "/alltouristspot/mylist/:email",
-            element: <PrivateRoute><MyList/></PrivateRoute>,
-            loader : ({params})=> fetch(`http://localhost:3000/alltouristspot/mylist/${params.email}`)
-        },
-        {
-            path: "/touriestspots/viewdetails/:id",
-            element:<ViewDetails/>,
-            loader: ({params})=> fetch(`http://localhost:3000/alltouristspot/${params.id}`)
-        },
-        {
-            path: "/alltouristspot/mylist/:email/:id",
-            element: <Update/>,
-            loader : ({params})=> fetch(`http://localhost:3000/alltouristspot/mylist/${params.email}/${params.id}`)
-        }
-      ]
-    },
-    {
-        path: "*",
-        element: <NotFound/>
-    }
-  ]);
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
+      {
+        path: "/addtouriestspots",
+        element: <AddTouriestSpots />,
+      },
+      {
+        path: "/touriestspots",
+        element: <AllTouriestSpots />,
+      },
+      {
+        path: "/alltouristspot/mylist/:email",
+        element: (
+          <PrivateRoute>
+            <MyList />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/alltouristspot/mylist/${params.email}`),
+      },
+      {
+        path: "/touriestspots/viewdetails/:id",
+        element: <ViewDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/alltouristspot/${params.id}`),
+      },
+      {
+        path: "/alltouristspot/mylist/:email/:id",
+        element: <Update />,
+        loader: ({ params }) =>
+          fetch(
+            `http://localhost:3000/alltouristspot/mylist/${params.email}/${params.id}`
+          ),
+      },
+      {
+        path: "/countries/:name",
+        element: <CountryBased />,
+        loader: ({ params }) => fetch(`http://localhost:3000/countries/${params.name}`),
+      },
+    ],
+  },
+  {
+    path: "*",
+    element: <NotFound />,
+  },
+]);
 
 export default router;
