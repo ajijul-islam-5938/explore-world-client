@@ -4,7 +4,29 @@
 * #####  Site Category : Southeast Asia
 * #####  Name : Explore World
 * ##### [Live Site Link Click here to visit](https://assignment-10-9a5c8.web.app)
+### ⚙️Used Technologies:
+<p align="left">
+  <a>
+    <img width="200" src="https://skillicons.dev/icons?i=react,firebase,mongo,express,tailwind,materialui &perline=6" />
+  </a>
+</p>
 
+# how to run this site locally
+
+- step 1
+   ```
+   $ git clone https://github.com/ajijul-islam-5938/explore-world-client.git
+   ```
+- step 2
+   ```
+   $ npm install
+   ```
+- step 3
+    - solve server side env variables
+- step 4
+  ```
+  $ npm run dev
+  ```
 # Features
 * ##### __Sign UP :__ You can Sign Up With Your Email Password and using google , github also.
 * ##### __All Tourist spots :__ You Can see Easily All tourist spot in one page .
